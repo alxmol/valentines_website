@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Day Surprise</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"> <!-- for play/pause button layouts -->
+</head>
+<body>
+    <div id="hearts-container"></div> <!-- plays the pink hearts -->
+    
+    <audio id="background-music" loop>
+        <source src="music/promise.mp3" type="audio/mpeg">
+        Your browser does not support the audio.
+    </audio>
+    
+    <!-- start of the content area that will be unaffected by background blur -->
+    <div class="content">
+        <div class="gif-container">
+            <img id="funny-gif" src="images/flowers-flower.gif" alt="Initial Funny GIF">
+        </div>
+        
+        <h1>Valentine's Day Surprise</h1>
+        <div id="name-entry" class="name-entry-style">
+            <input type="text" id="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" placeholder="Last Name" required>
+            <button onclick="askValentineQuestion()">Submit</button>
+            <p id="name-error" style="color: pink; display: none;">Please enter both your first name and last name to continue😊</p>
+        </div>        
+        
+        <!-- section for the valentine question -->
+        <div id="valentine-question" style="display: none;">
+            <p id="valentine-message"></p>
+            <button id="btn-yes" class="btn-yes" onclick="responseYes()">
+                <span class="heart-icon">❤️</span> Yes
+            </button>
+            <button id="btn-no" class="btn-no" onclick="moveNoButton()">
+                <span class="heart-icon">❤️</span> No
+            </button>            
+        </div>
+
+        <button id="play-btn" class="music-btn" onclick="playMusic()"><i class="fas fa-play"></i> Play</button>
+        <button id="pause-btn" class="music-btn" onclick="pauseMusic()"><i class="fas fa-pause"></i> Pause</button>
+        <div id="song-name" class="song-info">Laufey - Promise</div>
+
+        
+
+        <p id="message"></p>
+    </div> 
+    
+    <script src="script.js"></script>
+</body>
+</html>

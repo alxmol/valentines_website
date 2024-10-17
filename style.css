@@ -1,0 +1,217 @@
+body, html {
+    height: 100%; /* ensure full height coverage */
+    margin: 0; /* remove default margin */
+    overflow-x: hidden; /* prevent horizontal scrolling */
+}
+
+body::before {
+    content: "";
+    position: fixed; /* cover the entire viewport */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('images/pinkflowers.jpg') no-repeat center center fixed;
+    background-size: cover;
+    filter: blur(8px); /* adjusts blur intensity */
+    z-index: -1; /* place it behind the content */
+}
+
+/* function ensures content is placed above the blurred background */
+.content {
+    position: relative;
+    z-index: 1; /* higher than the pseudo-element */
+    color: #fff;
+    font-family: 'Parisienne', cursive;
+    text-align: center;
+    padding-top: 100px;
+}
+
+.name-entry-style input, .name-entry-style button {
+    padding: 10px 20px;
+    margin: 10px;
+    border: none;
+    border-radius: 20px; /* gives a soft rounded look */
+    font-size: 16px;
+}
+
+.name-entry-style input {
+    background-color: #fee; /* soft pink */
+    color: #555; /* darker text for contrast */
+}
+
+.name-entry-style button {
+    background-color: #f76b8a; /* a valentine red/pink */
+    color: #fff;
+    cursor: pointer; /* changes cursor on hover */
+    transition: background-color 0.3s; /* smooth transition for hover effect */
+    animation: pulse 1s infinite;
+}
+
+.name-entry-style button:hover {
+    background-color: #fc5185; /* slightly darker shade for hover */
+    box-shadow: 0 0 15px #ff88aa; /* adjust color and size of the glow */
+}
+
+
+
+@keyframes floatUp {
+    0% {
+        transform: translateY(700%) scale(0.5); /* start below the screen, smaller size */
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100%) scale(1.5); /* end above the screen, larger size */
+        opacity: 0;
+    }
+}
+
+.floating-heart {
+    position: absolute;
+    animation: floatUp 5s linear infinite;
+    will-change: transform, opacity;
+}
+
+.gif-container img {
+    width: 300px; 
+    height: auto; /* maintain aspect ratio */
+    position: absolute; /* positions it over other content */
+    top: 50%; 
+    left: 50%; 
+    transform: translate(-60%, 110%); /* center the GIF */
+}
+
+#valentine-message {
+    color: pink;
+   font-size: 2em; /* larger, responsive text size */
+    font-weight: bold; /* makes the text bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Soft shadow for depth */
+}
+
+#message {
+    color: pink;
+   font-size: 2em; /* larger, responsive text size */
+    font-weight: bold; /* makes the text bold */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* soft shadow for depth */
+}
+
+.btn-yes, .btn-no {
+    padding: 10px 20px; /* gives the button ample space to make it easier to click */
+    font-family: 'Parisienne', cursive; /* remain consistent with the theme */
+    font-size: 18px; /* increases readability */
+    color: #fff; /* white text */
+    border: none; /* removes the default border */
+    border-radius: 25px; /* rounded corners for a softer look */
+    cursor: pointer; /* changes the cursor to a pointer to indicate it's clickable */
+    transition: all 0.3s ease; /* smooth transition for hover effects */
+    margin: 5px; /* space between buttons */
+    animation: pulse 1s infinite;
+}
+
+.btn-yes {
+    background-color: #ff6680; /* s soft pink for the 'Yes' button */
+}
+
+.btn-no {
+    background-color: #ff99aa; /* a lighter pink for the 'No' button, to differentiate it from 'Yes' */
+    transition: top 0.8s ease, left 0.8s ease; /* smooth transition for movement */
+}
+
+.btn-yes:hover {
+    box-shadow: 0 0 30px #ff88aa; /* adjust color and size of the glow */
+}
+
+.btn-no:hover{
+    box-shadow: 0 0 30px #f898b3; /* adjust color and size of the glow */;
+}
+
+.btn-no:disabled {
+    opacity: 0.5; /* make the button appear faded when disabled*/
+    cursor: not-allowed; /* change the cursor to indicate it's not clickable*/
+}
+
+
+@keyframes pulse {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1); /* adjust the scale value to control the intensity */
+    }
+    100% {
+      transform: scale(1);
+    }
+}
+
+@keyframes heartbeat {
+    0% {
+      transform: scale(1); /*start at normal size */
+    }
+    25% {
+      transform: scale(1.1); /* slightly larger */
+    }
+    50% {
+      transform: scale(1); /* return to normal size */
+    }
+    75% {
+      transform: scale(1.1); /* Slightly larger */
+    }
+    100% {
+      transform: scale(1); /* return again and repeat */
+    }
+}
+  
+.heart-icon {
+    display: inline-block;
+    animation: heartbeat 2s infinite;
+}
+  
+.music-btn {
+    padding: 10px 20px;
+    font-family: 'Parisienne', cursive; /* font  matches valentine theme */
+    font-size: 18px;
+    color: #fff;
+    background-color: #f76b8a; /* a valentine red/pink */
+    border: none;
+    border-radius: 25px; /* rounded corners for a softer look */
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.music-btn:hover {
+    transform: scale(1.1); /* slightly enlarge on hover for a dynamic effect */
+    background-color: #fc5185; /* slightly darker shade for hover */
+    box-shadow: 0 0 35px #ff88aa; /* adjust color and size of the glow */
+}
+
+/* positioning of the play button */
+#play-btn {
+    position: absolute;
+    top: 20px; /* pixel location for vert */
+    left: 20px; /* pixel location for hor */
+}
+
+/* positioning of the pause button */
+#pause-btn {
+    position: absolute;
+    top: 20px;
+    left: 140px;
+}
+
+.song-info {
+    padding: 10px;
+    margin: 20px 0;
+    background-color: #fff5f8; /* light pink background */
+    border: 1px solid #ff6680; /* soft pink border */
+    border-radius: 15px; /* rounded corners */
+    color: #ff6680; /* text color */
+    font-family: 'Parisienne', cursive; /* thematic font */
+    text-align: center; /* center the text */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* soft shadow for depth */
+    width: 200px; /* pixel location for size */
+    display: block;
+    position: absolute; /* specific positioning */
+    top: 80px; /* pixel location for hor */
+    left: 130px; /* pixel location for hor */
+    transform: translate(-50%, -50%); /* centering technique */
+}
